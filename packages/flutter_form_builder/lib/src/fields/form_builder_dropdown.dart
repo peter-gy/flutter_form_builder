@@ -1,6 +1,5 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
-
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 /// Field for Dropdown button
@@ -194,6 +193,8 @@ class FormBuilderDropdown<T> extends FormBuilderField<T> {
 
   final bool shouldRequestFocus;
 
+  final Key? dropdownKey;
+
   /// Creates field for Dropdown button
   FormBuilderDropdown({
     Key? key,
@@ -230,6 +231,7 @@ class FormBuilderDropdown<T> extends FormBuilderField<T> {
     this.itemHeight = kMinInteractiveDimension,
     this.selectedItemBuilder,
     this.menuMaxHeight,
+    this.dropdownKey,
   }) : /*: assert(allowClear == true || clearIcon != null)*/ super(
           key: key,
           initialValue: initialValue,
@@ -267,7 +269,7 @@ class FormBuilderDropdown<T> extends FormBuilderField<T> {
                   Expanded(
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<T>(
-                        key: ValueKey('${field.value}'),
+                        key: dropdownKey,
                         isExpanded: isExpanded,
                         hint: hint,
                         items: items,
