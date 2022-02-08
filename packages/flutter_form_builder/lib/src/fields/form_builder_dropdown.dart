@@ -267,6 +267,7 @@ class FormBuilderDropdown<T> extends FormBuilderField<T> {
                   Expanded(
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton<T>(
+                        key: ValueKey('${field.value}'),
                         isExpanded: isExpanded,
                         hint: hint,
                         items: items,
